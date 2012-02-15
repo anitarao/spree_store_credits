@@ -1,6 +1,10 @@
 <p class="field">
-  <label for="<%= "#{param_prefix}_preferred_amount" %>">
-    <%= t(:amount) %>
-    <%= text_field_tag :preferred_amount, promotion_action.preferred_amount %>
-  </label>
+<% field_name = "#{param_prefix}[preferred_amount]" %>
+  <%= label_tag field_name, t(:amount) %>
+  <%= text_field_tag field_name, promotion_action.preferred_amount %>
+</p>
+<p class="field">
+<% field_name = "#{param_prefix}[preferred_expiry_days]" %>
+  <%= label_tag field_name, t(:expiry_days) %>
+  <%= text_field_tag field_name, promotion_action.preferred_expiry_days %>
 </p>
