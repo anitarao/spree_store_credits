@@ -13,13 +13,6 @@ Deface::Override.new(
   :disabled => false)
 
 Deface::Override.new(
-  :virtual_path => "spree/checkout/_payment",
-  :name => "store_credits_checkout_payment_step",
-  :insert_after => "[data-hook='checkout_payment_step']",
-  :partial => "spree/checkout/store_credits",
-  :disabled => false)
-
-Deface::Override.new(
   :virtual_path => "spree/users/show",
   :name => "store_credits_account_my_orders",
   :insert_after => "[data-hook='account_my_orders']",
