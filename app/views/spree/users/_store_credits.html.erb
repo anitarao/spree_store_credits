@@ -11,7 +11,6 @@
         <th><%= t("order_number") %></th>
         <th><%= t("order_date") %></th>
         <th><%= t("status") %></th>
-        <th><%= t("customer") %></th>
         <th><%= t("total") %></th>
         <th><%= t("store_credit") %></th>
       </tr>
@@ -22,7 +21,6 @@
         <td><%= link_to order.number, order_url(order) %></td>
         <td><%=order.created_at.to_date%></td>
         <td><%= t(order.state).titleize %></td>
-        <td><%= order.user.email if order.user %></td>
         <td><%= number_to_currency order.total %></td>
         <td><%= number_to_currency order.store_credit_amount %></td>
       </tr>
