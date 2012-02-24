@@ -1,7 +1,25 @@
 <% if @user.has_store_credit? %>
-  <h2><%= t("store_credits") %></h2>
+  <h3><%= t("store_credits") %></h3>
   <p>
   <%= t('current_store_credit') %>: <strong><%= number_to_currency @user.store_credits_total %></strong>
+  <table class="store-credit-summary">
+    <thead>
+      <tr>
+        <th><%= t(:credited_amount) %></th>
+        <th><%= t(:remaining_amount) %></th>
+        <th><%= t(:expiry_date) %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.store_credits.each do |store_credit| %>
+        <tr class="<%= cycle('even', 'odd') %>">
+          <td><%= number_to_currency store_credit.amount %></td>
+          <td><%= number_to_currency store_credit.remaining_amount %></td>
+          <td><%= store_credit.expires_at.nil? ? t(:does_not_expire) : store_credit.expires_at.to_date %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
   </p>
   <% if @orders_with_store_credit.present? %>
   <h3><%= t('orders_with_store_credit') %></h3>
