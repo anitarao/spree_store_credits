@@ -1,7 +1,8 @@
 <% if @user.has_store_credit? %>
   <h3><%= t("store_credits") %></h3>
   <p>
-  <%= t('current_store_credit') %>: <strong><%= number_to_currency @user.store_credits_total %></strong>
+  <%= t('current_store_credit') %>: <strong><%= number_to_currency @user.store_credits_total %></strong><span style="margin-left: 10px" class="tip"><%= link_to t(:how_do_store_credits_work), spree.store_credit_howto_path, :remote => true %></span>
+  <div id="store_credit_howto"></div>
   <table class="store-credit-summary">
     <thead>
       <tr>

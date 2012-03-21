@@ -1,0 +1,10 @@
+$('#store_credit_howto').html('<%= escape_javascript(render :template => "spree/users/store_credit_howto.html.erb") %>');
+$(function() {
+  $(document).mouseup( function(e) {
+    target = $(e.target);
+    if(target.closest("#store_credit_howto").length==0) {
+      $('#store_credit_howto').hide();
+    }
+  });
+});
+$('#store_credit_howto').show();

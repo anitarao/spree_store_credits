@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="content">
+    <h3><%= t(:how_do_store_credits_work) %></h3>
+      Promotional store credits in your account can be used for purchasing products, even in orders as less as Rs. 600. When your order total of products is above Rs. 600, you can apply Rs. 100 from store credits, so that the order's final value becomes Rs. 500. This works in multiples too:
+    <table>
+      <colgroup>
+        <col width="34%"/>
+        <col width="33%"/>
+        <col width="33%"/>
+      </colgroup>
+      <thead>
+        <tr>
+          <th><%= t(:purchase_value) %></th>
+          <th><%= t(:you_pay) %></th>
+          <th><%= t(:savings) %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% (1..5).each do |n| %>
+          <tr>
+            <td><%= number_to_currency(n * 600) %></td>
+            <td><%= number_to_currency(n * 500) %></td>
+            <td><%= number_to_currency(n * 100) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

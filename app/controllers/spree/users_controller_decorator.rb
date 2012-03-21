@@ -2,6 +2,9 @@ module Spree
   UsersController.class_eval do
     before_filter :find_orders_with_store_credit, :only => :show
 
+    def store_credit_howto
+    end
+
     private
 
     def find_orders_with_store_credit
