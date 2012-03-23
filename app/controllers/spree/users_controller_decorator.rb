@@ -1,6 +1,7 @@
 module Spree
   UsersController.class_eval do
     before_filter :find_orders_with_store_credit, :only => :show
+    ssl_allowed :store_credit_howto
 
     def store_credit_howto
     end
