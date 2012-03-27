@@ -80,6 +80,8 @@ module Spree
     # ensure that user has sufficient credits to cover adjustments
     #
     def ensure_sufficient_credit
+      # update only if this order is still incomplete or transitioning to complete.
+      return unless state != 'complete' or state_changed?
       if user.store_credits_total < store_credit_amount
         #user's credit does not cover all adjustments.
         adjustments.store_credits.destroy_all
